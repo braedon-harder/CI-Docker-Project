@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build image
         run: docker build ./ -t braedonharder/node-app:latest
       - name: push image to docker hub
-        run: 
-          docker login -u braedonharder -p {{ secrets.DOCKER_HUB_TOKEN }}
+        run:  |
+          docker login -u braedonharder -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push braedonharder/node-app:1.0
