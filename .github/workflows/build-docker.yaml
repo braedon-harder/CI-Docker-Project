@@ -13,4 +13,4 @@ jobs:
       - name: push image to docker hub
         run:  |
           docker login -u braedonharder -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push braedonharder/node-app:1.0
+          docker push braedonharder/node-app:latest
