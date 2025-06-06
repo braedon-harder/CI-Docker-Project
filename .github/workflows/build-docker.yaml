@@ -9,8 +9,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: build image
-        run: docker build ./ -t braedonharder/node-app:latest
+        run: docker build ./ -t braedonharder/node-app:{{ github.sha}}
       - name: push image to docker hub
         run:  |
           docker login -u braedonharder -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push braedonharder/node-app:latest
+          docker push braedonharder/node-app:{{ github.sha}}
